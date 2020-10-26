@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Awesome Blog</title>
+	{% load static %}
+	<link rel="stylesheet" type="text/css" href="{% static "css/style.css"%}">
+
+</head>
+<body>
+	<header class="site_header">
+		<div class="site_brand">
+
+			<h1 style="float:left;"><a href="{% url 'home' %}">  AwesomeBlog   </a> |  <h3> <a href="{% url 'newspage' %}">  (Back to News)  </a></h3></h1>
+		    <div style="float:right">
+		    	{% if user.is_authenticated %}
+		    		<a href="{% url 'new' %}"> +New Post </a>|<a href="{% url 'logout' %}"> Logout </a>
+				{% else %}		
+				<h3><a href="{% url 'login' %}" class="mr-sm-2">Login</a> | <a href="{% url 'register' %}">Register</a> </h3>		
+				{% endif %}
+			
+
+		    </div>	
+		</div>
+
+	</header>
+	<div class="content_wrapper">
+		<div class="content">
+
+			{% block content %}
+		        <h1>welcome to home page of awesome blogs</h1> 
+		    {% endblock  %}
+		</div>
+		<div class="sidebar">
+			<div class="widget">
+				
+				<h1 class="widget_title">Happy Blogging</h1>
+			</div>	
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block body %}
+<div class="container">
+<div class="row">
+
+	{% for x in api.articles %}
+	<div class="col-sm-3"> 
+		<div class="card-deck">
+			<div class="card text-center  bg-light border-secondary mb-3" style="width: 18rem;">
+				<img  src="{{x.urlToImage}}" class="card-img-top" alt="{{x.source.name}}">
+				<div class="card-body">
+				    <h5 class="card-title">{{x.title}}</h5>
+				    <p class="card-text">{{x.content|truncatechars:100}}</p>
+				    <a href="{{x.url}}" target="_blank" class="btn btn-primary">Read More</a>
+				</div>
+				<div class="card-footer  bg-light border-secondary ">
+			      <small class="text-muted">{{x.publishedAt}}</small>
+			    </div>
+		    </div>
+		</div>
+
+		
+	    <br>
+	</div>    
+    {%endfor%}
+</div>
+	
+</div>
+
+
+{% endblock  %}
