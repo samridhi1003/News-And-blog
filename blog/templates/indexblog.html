@@ -5,7 +5,7 @@
 	{% for post in object_list %}
 	  	<div class="post_entry">
 	  		<h1 class="post_title"><a href="{% url 'post-detail' post.pk %}">{{post.title}}</a></h1>
-	  		<p class="post_content">{{post.body}}</p>
+	  		<p class="post_content">{{post.body|truncatechars:100}}</p>
 	  	</div>
 	{% endfor %}  
 {% endblock  %}
